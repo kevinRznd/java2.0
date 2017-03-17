@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package warrior;
-
+import java.util.*;
 /**
  *
  * @author Sammy Guergachi <sguergachi at gmail.com>
@@ -15,6 +15,7 @@ public class Warrior {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
         
         Guerrier g = new Guerrier();
         Bataille bg = new Guerrier();
@@ -31,33 +32,63 @@ public class Warrior {
         Medecin m = new Medecin();
         Hopital hm = new Medecin();
         
-        g.name();
-        g.seDeplacer();
-        bg.seBattre();
+        int choix;
         
-        System.out.println("*********************************************");
+        do{
+            
+            System.out.println( "Afficher un warrior :        \n"
+                    +           "1  Guerrier            \n"
+                    +           "2  Demon               \n"
+                    +           "3  Alien               \n"
+                    +           "4  Soldat              \n"
+                    +           "5  Medecin             \n"
+                    +           "6  Quitter             ");      
+
+           choix = scan.nextInt();
+           scan.nextLine();
+                
+            switch(choix) {
+                
+                case 1:
+                    System.out.println("***********************************");
+                    g.name();
+                    g.seDeplacer();
+                    bg.seBattre();
+                    System.out.println("***********************************");
+                break;
+                case 2:
+                    System.out.println("***********************************");
+                    d.name();
+                    d.seDeplacer();
+                    bd.seBattre();
+                    System.out.println("***********************************");
+                break;
+                case 3:
+                    System.out.println("***********************************");
+                    a.name();
+                    a.seDeplacer();
+                    ba.seBattre();
+                    System.out.println("***********************************");
+                break;
+                case 4:
+                    System.out.println("***********************************");
+                    s.name();
+                    s.seDeplacer();
+                    bs.seBattre();
+                    System.out.println("***********************************");
+                break;
+                case 5:
+                    System.out.println("***********************************");
+                    m.name();
+                    m.seDeplacer();
+                    hm.soigner();
+                    System.out.println("***********************************");
+                break;
+                
+                default : System.out.println("Option incorrecte !");
+            }
         
-        d.name();
-        d.seDeplacer();
-        bd.seBattre();
-        
-        System.out.println("*********************************************");
-        
-        a.name();
-        a.seDeplacer();
-        ba.seBattre();
-        
-        System.out.println("*********************************************");
-        
-        s.name();
-        s.seDeplacer();
-        bs.seBattre();
-        
-        System.out.println("*********************************************");
-        
-        m.name();
-        m.seDeplacer();
-        hm.soigner();
+        } while (choix != 6);
         
     }
     
